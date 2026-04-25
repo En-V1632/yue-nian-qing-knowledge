@@ -1,5 +1,6 @@
 # 悦年轻知识库 - 敏感配置
 scripts/config.js
+scripts/feishu-user-token.json
 
 # 日志
 scripts/logs/
