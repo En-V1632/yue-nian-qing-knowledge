@@ -1,0 +1,14 @@
+{
+  "name": "en-v-sync-scripts",
+  "version": "1.0.0",
+  "description": "悦年轻知识库同步脚本",
+  "main": "sync-feishu.js",
+  "scripts": {
+    "sync-feishu": "node sync-feishu.js",
+    "sync-volcengine": "node sync-volcengine.js",
+    "sync-all": "node sync-feishu.js && node sync-volcengine.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}

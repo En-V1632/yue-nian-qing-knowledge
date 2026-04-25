@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "180f5c6dc3d4421a",
+    "type": "split",
+    "children": [
+      {
+        "id": "36a8485938301bd2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7072ae59bdc9f9bb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/技术工具/Agent研究/规范架构.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "规范架构"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3d22d468243fc66c",
+    "type": "split",
+    "children": [
+      {
+        "id": "c8a18dec7d386145",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "838bd99993361117",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a604fd4c2b2b93dd",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "0b9b880eecc45488",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "29592ec3904df623",
+    "type": "split",
+    "children": [
+      {
+        "id": "2c00486391343f66",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ea9c8f611c3184b7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "ce5baa2c61c4e8a1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "30b4daaaa7a2291d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "08f75f1eb0fe7c3c",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "ad93e9a006028289",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "En_V.base",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "En_V 的大纲"
+            }
+          },
+          {
+            "id": "7121fa75670ed263",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 1302.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian42-brat:BRAT": false,
+      "claudian:Open Claudian": false
+    }
+  },
+  "active": "7121fa75670ed263",
+  "lastOpenFiles": [
+    "scripts/package.json",
+    "wiki/技术工具/知识库同步配置.md",
+    "scripts/sync-volcengine.js",
+    "scripts/sync-feishu.js",
+    "scripts/config.js",
+    "scripts/utils",
+    "scripts",
+    "wiki/技术工具/Agent研究/计算式vs推理式.md",
+    "wiki/技术工具/Agent研究/生成器-评估器循环.md",
+    "wiki/技术工具/Agent研究/推理三明治.md",
+    "raw/素材/karpathy wiki 方法论.md",
+    "raw/Effective harnesses for long-running agents.md",
+    "raw/Building Effective AI Coding Agents for the Terminal Scaffolding, Harness, Context Engineering, and Lessons Learned.md",
+    "raw/悦年轻公司情况整理.md",
+    "wiki/技术工具/Agent研究/2026-04-25 概览 - MiniMax 开放平台文档中心.md",
+    "wiki/技术工具/Agent研究/2026-04-25 工程技术：在智能体优先的世界中利用 Codex.md",
+    "wiki/技术工具/Agent研究/2026-04-25 What Harness Engineering Actually Means.md",
+    "wiki/技术工具/Agent研究/2026-04-25 The Anatomy of an Agent Harness.md",
+    "wiki/技术工具/Agent研究/2026-04-25 OpenAI's Michael Bolin on Codex, Harness Engineering, and the Real Future of Coding Agents.md",
+    "wiki/技术工具/Agent研究/2026-04-25 MiniMax Agent 简单指令, 无限可能.md",
+    "wiki/技术工具/Agent研究/2026-04-25 Improving Deep Agents with harness engineering.md",
+    "wiki/技术工具/Agent研究/2026-04-25 Harness engineering for coding agent users.md",
+    "wiki/技术工具/Agent研究/2026-04-25 Harness design for long-running application development.md",
+    "wiki/技术工具/Agent研究/2026-04-25 Effective harnesses for long-running agents.md",
+    "wiki/技术工具/Agent研究/2026-04-25 Building Effective AI Coding Agents for the Terminal.md",
+    "wiki/技术工具/Agent研究/长运行智能体.md",
+    "wiki/技术工具/Agent研究/跟踪分析.md",
+    "wiki/技术工具/Agent研究/记忆系统.md",
+    "wiki/技术工具/Agent研究/规范架构.md",
+    "wiki/技术工具/Agent研究/自我验证.md",
+    "wiki/技术工具/Agent研究/监管类别.md",
+    "wiki/公司/团队",
+    "wiki/公司",
+    "wiki/财务",
+    "wiki/战略",
+    "wiki/融资",
+    "未命名.canvas"
+  ]
+}

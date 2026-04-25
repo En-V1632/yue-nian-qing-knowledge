@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(gh repo:*)",
+      "WebSearch",
+      "Bash(curl -s https://api.github.com/repos/kepano/obsidian-skills)",
+      "Bash(curl -s https://raw.githubusercontent.com/kepano/obsidian-skills/main/README.md)",
+      "Bash(cd /tmp && git clone --depth=1 https://github.com/kepano/obsidian-skills.git obsidian-skills-temp 2>&1)",
+      "Read(//tmp/obsidian-skills-temp/**)",
+      "Bash(cp -r /tmp/obsidian-skills-temp/skills/* .claude/skills/ && ls -la .claude/skills/)",
+      "Bash(ls -la .claude/skills/*/)",
+      "Read(E:\\\\database\\\\En_V\\\\https:\\\\minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com\\\\ccv2%2F2026-04-25%2FMiniMax-M2.7%2F1971216220422152986%2Fd032bf911c3e7d31ba37a249dc721549c14ad1021a1bf4a2dbd045c46a3c3380..png?Expires=1777180347&OSSAccessKeyId=LTAI5tGLnRTkBjLuYPjNcKQ8&Signature=%2BwXAi4K7vr%2F8B4hsaPLvlpHoE9k%3D)",
+      "WebFetch(domain:minimax-algeng-chat-tts.oss-cn-wulanchabu.aliyuncs.com)",
+      "Bash(grep -E \"\\\\.md$\")",
+      "Bash(ls wiki/来源/*.md)",
+      "Bash(ls wiki/实体/*.md)",
+      "Bash(ls wiki/概念/*.md)",
+      "Bash(ls -la raw/*.md)",
+      "Bash(cat raw/OpenAI*.md)",
+      "Bash(cat \"E:/database/En_V/raw/OpenAI\"*\"Michael Bolin\"*\".md\")",
+      "Bash(ls -lt \"E:/database/En_V/raw/\"*.md)",
+      "Bash(mv \"E:/database/En_V/wiki/概念/\"*.md \"E:/database/En_V/wiki/技术工具/Agent研究/\")",
+      "Bash(mv \"E:/database/En_V/wiki/来源/\"*.md \"E:/database/En_V/wiki/技术工具/Agent研究/\")",
+      "Bash(grep -v \"^index.md$\")",
+      "Bash(cd \"E:/database/En_V/wiki\" && find . -name \"*.md\" ! -name \"index.md\" ! -name \"log.md\" -type f | sed 's|^\\\\./||;s|\\\\.md$||' | while read f; do basename \"$f\"; done | sort | uniq)",
+      "Bash(python3)",
+      "Bash(python)",
+      "Bash(python -c ':*)",
+      "Bash(cd \"E:/database/En_V/wiki\" && grep -rn '\\\\[\\\\[.*Building Effective AI Coding Agents' --include=\"*.md\" . 2>/dev/null | head -5 && echo \"---\" && grep -rn '\\\\[\\\\[.*OpenAI.*Michael Bolin' --include=\"*.md\" . 2>/dev/null | head -5 && echo \"---\" && grep -rn '\\\\[\\\\[.*悦年轻\\\\]' --include=\"*.md\" . 2>/dev/null | head -5)",
+      "Bash(cd \"E:/database/En_V/wiki\" && python -c \"\nimport os, re, sys, io\nsys.stdout = io.TextIOWrapper\\(sys.stdout.buffer, encoding='utf-8'\\)\n\n# Pages that can be orphans \\(excluding index.md and log.md\\)\norphan_candidates = set\\(\\)\n# All .md files \\(including index.md, log.md\\) as link sources\nall_sources = []\n\nfor root, dirs, files in os.walk\\('.'\\):\n    for f in files:\n        if not f.endswith\\('.md'\\):\n            continue\n        full = os.path.join\\(root, f\\)\n        all_sources.append\\(full\\)\n        if f not in \\('index.md', 'log.md'\\):\n            orphan_candidates.add\\(full\\)\n\n# Map basename -> full paths \\(only for orphan candidates\\)\nbasename_map = {}\nfor p in orphan_candidates:\n    bn = os.path.splitext\\(os.path.basename\\(p\\)\\)[0]\n    basename_map.setdefault\\(bn, []\\).append\\(p\\)\n\nall_basenames = set\\(basename_map.keys\\(\\)\\)\n\n# Track incoming links \\(from ALL .md files including index/log\\)\nincoming = {bn: set\\(\\) for bn in all_basenames}\n\nfor src in all_sources:\n    with open\\(src, 'r', encoding='utf-8'\\) as fh:\n        content = fh.read\\(\\)\n    links = re.findall\\(r'\\\\[\\\\[\\([^\\\\]|#]+?\\)\\(?:\\\\|[^\\\\]]*?\\)?\\(?:#[^\\\\]]*?\\)?\\\\]\\\\]', content\\)\n    for link in links:\n        link = link.strip\\(\\)\n        if link.startswith\\('raw/'\\):\n            continue\n        link_bn = os.path.basename\\(link\\)\n        if link_bn.endswith\\('.md'\\):\n            link_bn = link_bn[:-3]\n        if link_bn in all_basenames:\n            for tp in basename_map[link_bn]:\n                if tp != src:\n                    incoming[link_bn].add\\(src\\)\n\norphans = sorted\\([bn for bn, sources in incoming.items\\(\\) if len\\(sources\\) == 0]\\)\n\nprint\\('=== TASK 1: ORPHAN PAGES ==='\\)\nif orphans:\n    for o in orphans:\n        for p in basename_map[o]:\n            print\\(f'  ORPHAN: {p}'\\)\nelse:\n    print\\('  None found.'\\)\nprint\\(f'Total orphans: {len\\(orphans\\)}'\\)\n\nprint\\(\\)\nprint\\('=== TASK 2: BROKEN LINKS ==='\\)\nbroken = []\nfor src in all_sources:\n    with open\\(src, 'r', encoding='utf-8'\\) as fh:\n        lines = fh.readlines\\(\\)\n    for lineno, line in enumerate\\(lines, 1\\):\n        links = re.findall\\(r'\\\\[\\\\[\\([^\\\\]|#]+?\\)\\(?:\\\\|[^\\\\]]*?\\)?\\(?:#[^\\\\]]*?\\)?\\\\]\\\\]', line\\)\n        for link in links:\n            link = link.strip\\(\\)\n            if link.startswith\\('raw/'\\):\n                continue\n            link_bn = os.path.basename\\(link\\)\n            if link_bn.endswith\\('.md'\\):\n                link_bn = link_bn[:-3]\n            if link_bn not in all_basenames:\n                broken.append\\(\\(src, lineno, link\\)\\)\n\nif broken:\n    for src, lineno, link in sorted\\(broken\\):\n        print\\(f'  BROKEN: {src}:{lineno} -> [[{link}]]'\\)\nelse:\n    print\\('  None found.'\\)\nprint\\(f'Total broken links: {len\\(broken\\)}'\\)\n\" 2>&1)",
+      "Bash(cd \"E:/database/En_V/wiki\" && python -c \"\nimport os, re, sys, io\nfrom collections import Counter\nsys.stdout = io.TextIOWrapper\\(sys.stdout.buffer, encoding='utf-8'\\)\n\n# Count how many distinct source files reference each broken link target\nlink_sources = {}\nall_sources = []\nfor root, dirs, files in os.walk\\('.'\\):\n    for f in files:\n        if not f.endswith\\('.md'\\):\n            continue\n        full = os.path.join\\(root, f\\)\n        all_sources.append\\(full\\)\n\n# Build set of existing basenames\nexisting = set\\(\\)\nfor root, dirs, files in os.walk\\('.'\\):\n    for f in files:\n        if f.endswith\\('.md'\\) and f not in \\('index.md', 'log.md'\\):\n            existing.add\\(f[:-3]\\)\n\nbroken_targets = Counter\\(\\)\nbroken_details = {}\nfor src in all_sources:\n    with open\\(src, 'r', encoding='utf-8'\\) as fh:\n        content = fh.read\\(\\)\n    links = re.findall\\(r'\\\\[\\\\[\\([^\\\\]|#]+?\\)\\(?:\\\\|[^\\\\]]*?\\)?\\(?:#[^\\\\]]*?\\)?\\\\]\\\\]', content\\)\n    for link in links:\n        link = link.strip\\(\\)\n        if link.startswith\\('raw/'\\):\n            continue\n        link_bn = os.path.basename\\(link\\)\n        if link_bn.endswith\\('.md'\\):\n            link_bn = link_bn[:-3]\n        if link_bn not in existing:\n            broken_targets[link_bn] += 1\n            broken_details.setdefault\\(link_bn, set\\(\\)\\).add\\(src\\)\n\nprint\\('=== BROKEN LINK TARGETS \\(grouped by frequency\\) ==='\\)\nfor target, count in broken_targets.most_common\\(\\):\n    sources = sorted\\(broken_details[target]\\)\n    src_names = [os.path.basename\\(s\\) for s in sources]\n    eligible = '\\(eligible for page creation: 2+ sources\\)' if len\\(sources\\) >= 2 else ''\n    print\\(f'  [[{target}]] - {len\\(sources\\)} source\\(s\\): {src_names} {eligible}'\\)\n\" 2>&1)",
+      "Bash(cd E:/database/En_V && git status 2>&1 || echo \"Not a git repo\")",
+      "Bash(cd E:/database/En_V && git init && git config user.name \"Claude\" && git config user.email \"claude@anthropic.com\" && echo \"Git initialized\" && ls -la)",
+      "Bash(cd E:/database/En_V && git remote add origin https://github.com/En-V1632/yue-nian-qing-knowledge.git && git branch -M main && git add . && git status)"
+    ]
+  }
+}

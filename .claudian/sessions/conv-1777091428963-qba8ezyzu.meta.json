@@ -1,0 +1,22 @@
+{
+  "id": "conv-1777091428963-qba8ezyzu",
+  "providerId": "claude",
+  "title": "**Conversation Title:** Initial Greeting",
+  "titleGenerationStatus": "success",
+  "createdAt": 1777091428965,
+  "updatedAt": 1777093374665,
+  "lastResponseAt": 1777093304806,
+  "sessionId": "71139813-c88b-4ec7-a1fe-898129b8c09e",
+  "providerState": {
+    "providerSessionId": "71139813-c88b-4ec7-a1fe-898129b8c09e"
+  },
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 0,
+    "percentage": 0
+  }
+}
